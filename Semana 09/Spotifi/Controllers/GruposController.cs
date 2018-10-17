@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Spotifi.Models;
 
@@ -38,9 +39,33 @@ namespace Spotifi.Controllers
         {
             return View();
         }
+        
+        public IActionResult RegistroAlbum() {
+            ViewBag.Bandas = new SelectList(_context.Bandas, "Id", "Nombre");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult RegistroAlbum(Album a) {
+
+            a.Banda = _context.Bandas.Find(a.Banda.Id);
+                _context.Albumes.Add(a);
+                _context.SaveChanges();
+
+                return RedirectToAction("RegistroAlbumConfirmacion");
+
+            return View();
+        }
+
+        public IActionResult RegistroAlbumConfirmacion() {
+            return View();
+        }
+        
         public IActionResult Lista()
         {
-            var lista = _context.Bandas.Include(x => x.Albumes).ToList();
+            var lista = _context.Bandas.Include(x => x.Albumes)
+                                       .OrderByDescending(b => b.Id)
+                                       .ToList();
 
             return View(lista);
         }

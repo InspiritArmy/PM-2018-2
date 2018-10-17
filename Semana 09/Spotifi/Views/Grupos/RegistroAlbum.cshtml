@@ -1,0 +1,21 @@
+@model Album
+
+<h2>Formulario de registro de album</h2>
+
+@Html.ValidationSummary()
+
+<form asp-action="RegistroAlbum" method="post">
+
+<div class="form-group">
+    <label>Nombre:</label>
+    <input type="text" class="form-control" asp-for="Nombre" />
+</div>
+<div class="form-group">
+    <label>Grupo Musical:</label>
+    <select class="form-control" asp-for="Banda.Id" asp-items="ViewBag.Bandas"></select>
+    
+</div>
+
+<button type="submit">Registrar</button>
+
+</form>
