@@ -4,6 +4,7 @@ namespace Spotifi.Models
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public GrupoMusical Banda { get; set; }
+        public Banda Banda { get; set; }
+        public int BandaId { get; set; }
     }
 }

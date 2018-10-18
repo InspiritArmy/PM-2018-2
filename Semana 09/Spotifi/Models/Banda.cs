@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Spotifi.Models
 {
-    public class GrupoMusical
+    public class Banda
     {
         public int Id { get; set; }
 

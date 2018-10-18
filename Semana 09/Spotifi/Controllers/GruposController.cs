@@ -22,17 +22,19 @@ namespace Spotifi.Controllers
         }
 
         [HttpPost]
-        public IActionResult RegistroGrupo(GrupoMusical g)
+        public IActionResult RegistroGrupo(Banda b)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(g);
+                _context.Add(b);
                 _context.SaveChanges();
 
                 return RedirectToAction("RegistroGrupoConfirmacion");
             }
 
-            return View(g);
+            ViewBag.Bandas = new SelectList(_context.Bandas, "Id", "Nombre");
+
+            return View(b);
         }
 
         public IActionResult RegistroGrupoConfirmacion()
@@ -47,12 +49,13 @@ namespace Spotifi.Controllers
 
         [HttpPost]
         public IActionResult RegistroAlbum(Album a) {
-
-            a.Banda = _context.Bandas.Find(a.Banda.Id);
+            if (ModelState.IsValid) {
                 _context.Albumes.Add(a);
                 _context.SaveChanges();
 
                 return RedirectToAction("RegistroAlbumConfirmacion");
+            }
+                
 
             return View();
         }
