@@ -3,7 +3,7 @@
 <h1>Lista de grupos de música</h1>
 
 @foreach(var banda in Model) {
-    <h2>@banda.Nombre</h2>
+    <h2>@banda.Nombre (@banda.Abreviacion)</h2>
     <img src="@banda.Foto" width="300" />
     <h3>Lista de albumes</h3>
 

@@ -10,6 +10,7 @@ namespace Spotifi.Models
 
         [Required]
         public string Nombre { get; set; }
+        public string Abreviacion { get; set; }
         public string Foto { get; set; }
         public List<Album> Albumes { get; set; }
     }
