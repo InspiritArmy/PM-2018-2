@@ -12,6 +12,9 @@ namespace Spotifi.Models
         public string Nombre { get; set; }
         public string Abreviacion { get; set; }
         public string Foto { get; set; }
+
+        public Categoria Categoria { get; set; }
+        public int? CategoriaId { get; set; }
         public List<Album> Albumes { get; set; }
     }
 }

@@ -1,0 +1,18 @@
+@model Banda
+
+<h1>Formulario de registro de categorias</h1>
+
+@Html.ValidationSummary()
+
+<form asp-action="RegistroCategoria" method="post">
+
+    <div class="form-group">
+        <label>Nombre:</label>
+        <input asp-for="Nombre" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">Registrar</button>
+    </div>
+
+</form>

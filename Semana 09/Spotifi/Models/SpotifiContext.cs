@@ -25,6 +25,8 @@ namespace Spotifi.Models
         }
 
         public DbSet<Banda> Bandas { get; set; }
+
+        public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Album> Albumes { get; set; }
     }
 }

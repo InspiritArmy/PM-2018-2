@@ -21,6 +21,30 @@ namespace Spotifi.Controllers
             return View();
         }
 
+        public IActionResult RegistroCategoria()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult RegistroCategoria(Categoria c)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(c);
+                _context.SaveChanges();
+
+                return RedirectToAction("RegistroCategoriaConfirmacion");
+            }
+
+            return View(c);
+        }
+
+        public IActionResult RegistroCategoriaConfirmacion()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult RegistroGrupo(Banda b)
         {
