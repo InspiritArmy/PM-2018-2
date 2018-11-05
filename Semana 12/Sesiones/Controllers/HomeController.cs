@@ -18,6 +18,7 @@ namespace Sesiones.Controllers
 
         public IActionResult About()
         {
+            //$_SESSION["usuario"] = "abc";
             HttpContext.Session.SetString("usuario", "abc");
 
             ViewData["Message"] = "Your application description page.";
@@ -27,6 +28,7 @@ namespace Sesiones.Controllers
 
         public IActionResult Contact()
         {
+            //$usuario = $_SESSION["usuario"];
             var usuario = HttpContext.Session.GetString("usuario");            
 
             ViewData["Message"] = $"Your contact page. {usuario}";
