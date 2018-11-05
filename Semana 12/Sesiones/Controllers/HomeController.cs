@@ -9,7 +9,7 @@ using Sesiones.Models;
 
 namespace Sesiones.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public IActionResult Index()
         {
@@ -28,10 +28,7 @@ namespace Sesiones.Controllers
 
         public IActionResult Contact()
         {
-            //$usuario = $_SESSION["usuario"];
-            var usuario = HttpContext.Session.GetString("usuario");            
-
-            ViewData["Message"] = $"Your contact page. {usuario}";
+            ViewData["Message"] = $"Your contact page.";
 
             return View();
         }
